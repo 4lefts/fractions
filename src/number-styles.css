@@ -1,0 +1,18 @@
+.frac{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+}
+.frac > span{
+    display: block;
+    font-size: 0.64em;
+    padding: 0.1em;
+}
+.frac > span.denominator{
+    border-top: 1.4px solid black;
+}
+.frac > span.vinculum{
+    display: none;
+}
