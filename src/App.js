@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      numberOfQuestions: 5,
+      numberOfQuestions: 10,
       operatorOptions: [
         {
           operator: 'add',

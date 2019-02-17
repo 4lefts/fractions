@@ -4,6 +4,7 @@
     vertical-align: middle;
     letter-spacing: 0.001em;
     text-align: center;
+    margin: 0 0.12rem;
 }
 .frac > span{
     display: block;
@@ -11,8 +12,12 @@
     padding: 0.1em;
 }
 .frac > span.denominator{
-    border-top: 1.4px solid black;
+    border-top: 2px solid rgba(27, 79, 114, 0.875);
 }
 .frac > span.vinculum{
     display: none;
+}
+
+.whole{
+    margin: 0 0.12rem;
 }

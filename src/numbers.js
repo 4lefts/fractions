@@ -4,7 +4,7 @@ import './number-styles.css'
 // build whole number part, if it exists
 function WholeNumber(props){
     // console.log(JSON.stringify(props, null, 3))
-    return <span>{props.val}</span>
+    return <span className="whole">{props.val}</span>
 }
 
 // build the fractional part, if it exists
