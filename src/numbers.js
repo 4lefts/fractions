@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import './number-styles.css'
+import './number-styles.scss'
 
 // build whole number part, if it exists
 function WholeNumber(props){

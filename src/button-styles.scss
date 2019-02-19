@@ -1,0 +1,29 @@
+@import './vars';
+
+.button{
+    background-color: white;
+    color: $text-color;
+    outline: none;
+    border: 1px solid $text-color;
+    border-radius: 5px;
+    height: 40px;
+    margin-right: 10px;
+    min-width: 80px;
+}
+
+.button[disabled]{
+    background-color: white;
+    border-color: lightgrey;
+    color: lightgrey;
+}
+
+.button.active{
+    background-color: $text-color;
+    color: white;
+}
+
+.button[disabled].active{
+    background-color: lightgrey;
+    border-color: lightgrey;
+    color: white;    
+}

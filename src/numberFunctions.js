@@ -17,23 +17,19 @@ function buildQuestionDataArray(len, operatorOptions) {
         let op1, op2
         switch (operatorObject.symbol.charCodeAt(0)) {
             case 43:
-                console.log('add');
                 ({ op1, op2 } = makeAddorMultOperands(operatorObject.options))
                 break
             case 8722:
-                console.log('subtract');
                 ({ op1, op2 } = makeSubOperands(operatorObject.options))
                 break
             case 215:
-                console.log('multiply');
                 ({ op1, op2 } = makeAddorMultOperands(operatorObject.options))
                 break
             case 247:
-                console.log('divide');
                 ({ op1, op2 } = makeDivOperands(operatorObject.options))
                 break
             default:
-                console.log('something else')
+                console.log('something went wrong!?')
         }
         return {
             operator,

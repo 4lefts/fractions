@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import {TitleBar} from './titleBar';
+import {Controls} from './controls';
 import {Question} from './question';
-import {buildQuestionDataArray} from './numberFunctions'
+import {buildQuestionDataArray} from './numberFunctions';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      title: 'Fractions',
+      description: `
+        Make random fraction questions for all four operations.
+        See the control panel for options.
+      `,
       numberOfQuestions: 10,
       operatorOptions: [
         {
@@ -55,6 +61,7 @@ class App extends Component {
     // make sure 'this' is defined in onclick callbacks
     this.generateQuestionData = this.generateQuestionData.bind(this)
     this.toggleOperators = this.toggleOperators.bind(this)
+    this.updateSettings =this.updateSettings.bind(this)
   }
 
   componentDidMount(){
@@ -84,6 +91,18 @@ class App extends Component {
     this.generateQuestionData()
   }
 
+  // all purpose function to toggle various settings
+  updateSettings(settingToUpdate){
+    console.log(JSON.stringify(settingToUpdate))
+    const oldOptions = this.state.operatorOptions.slice()
+    const indexToUpdate = oldOptions.findIndex(op => op.operator === settingToUpdate.operator)
+    oldOptions[indexToUpdate].options[settingToUpdate.option] = !oldOptions[indexToUpdate].options[settingToUpdate.option]
+    this.setState({
+      operatorOptions:oldOptions
+    })
+    this.generateQuestionData()
+  }
+
   // build ordered list of question components
   questionList(){
     // check if the question is null (i.e. no operators are selected)
@@ -91,7 +110,7 @@ class App extends Component {
     if(qdata.length > 0){
       const qs = qdata.map((q, i) => <Question key={i} data={q} />)
       return(
-        <ol>
+        <ol className="question-list">
           {qs}
         </ol>
       )
@@ -103,10 +122,14 @@ class App extends Component {
     return (
       <div className="App">
         <TitleBar 
-          title={"Fractions"}
+          title={this.state.title}
+          description={this.state.description}
+          />
+        <Controls
           operatorOptions={this.state.operatorOptions}
           generate={this.generateQuestionData} 
           toggleOperators={this.toggleOperators}
+          updateSettings={this.updateSettings}
         />
         {this.questionList()}
       </div>

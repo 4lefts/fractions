@@ -1,6 +1,6 @@
 import React from 'react'
 import { Num } from './numbers'
-import './question-styles.css'
+import './question-styles.scss'
 
 function Question(props){
     const op1 = props.data.op1
