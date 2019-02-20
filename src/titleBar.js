@@ -1,7 +1,7 @@
 import React from 'react'
 import './titleBar-styles.scss'
 
-function TitleBar(props) {
+export default function TitleBar(props) {
     const { title, description } = props
     return (
         <header>
@@ -10,5 +10,4 @@ function TitleBar(props) {
         </header>
     )
 }
-
-export { TitleBar }  
+  

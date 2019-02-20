@@ -1,8 +1,8 @@
 import React from 'react'
-import { Num } from './numbers'
+import Num from './numbers'
 import './question-styles.scss'
 
-function Question(props){
+export default function Question(props){
     const op1 = props.data.op1
     const op2 = props.data.op2
     const operator = <span className="operator">{props.data.operator}</span>
@@ -10,5 +10,3 @@ function Question(props){
         <Num val={op1}/>{operator}<Num val={op2}/>
     </li>
 }
-
-export { Question }

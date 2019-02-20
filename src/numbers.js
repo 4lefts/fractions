@@ -19,10 +19,8 @@ function Fraction(props){
 }
 
 // render a component of both whole and fractional parts
-function Num(props){
+export default function Num(props){
     const w = props.val.whole ? <WholeNumber val={props.val.whole} /> : null
     const f = props.val.numerator ? <Fraction numerator={props.val.numerator} denominator={props.val.denominator} /> : null
     return <Fragment>{w}{f}</Fragment>
 }
-
-export {Num}
