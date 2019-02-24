@@ -5,6 +5,7 @@ export default function OperatorChoices(props) {
     return (
         <section>
             <h3>Operators</h3>
+            <div className="toggle-row operators">
             {
                 operatorOptions.map(choice => {
                     return (
@@ -17,6 +18,7 @@ export default function OperatorChoices(props) {
                     )
                 })
             }
+            </div>
         </section>
     )
 }

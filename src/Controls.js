@@ -1,6 +1,5 @@
 import React from 'react'
 import './control-styles.scss'
-import './button-styles.scss'
 
 import OperatorChoices from './settingsComponents/OperatorChoices'
 import AddtionOptions from './settingsComponents/AdditionOptions'
@@ -12,16 +11,14 @@ import SettingsButton from './settingsComponents/SettingsButton'
 export default function Controls(props) {
     const { operatorOptions, showSettings } = props
     return (
-        <div className="settings">
-            <aside className={"main-controls " + (showSettings ? 'active' : 'inactive')}>
-                <SettingsButton toggleSettings={props.toggleSettings} showSettings={props.showSettings} />
-                <OperatorChoices operatorOptions={operatorOptions} toggleOperators={props.toggleOperators} />
-                <AddtionOptions options={operatorOptions[0]} updateSettings={props.updateSettings} />
-                <SubtractionOptions options={operatorOptions[1]} updateSettings={props.updateSettings} />
-                <MultiplicationOptions options={operatorOptions[2]} updateSettings={props.updateSettings} />
-                <DivisionOptions options={operatorOptions[3]} updateSettings={props.updateSettings} />
-            </aside>
-        </div>
+        <aside className={"main-controls " + (showSettings ? 'active' : 'inactive')}>
+            <SettingsButton toggleSettings={props.toggleSettings} showSettings={props.showSettings} width={'100%'} fill={'grey'}/>
+            <OperatorChoices operatorOptions={operatorOptions} toggleOperators={props.toggleOperators} />
+            <AddtionOptions options={operatorOptions[0]} updateSettings={props.updateSettings} />
+            <SubtractionOptions options={operatorOptions[1]} updateSettings={props.updateSettings} />
+            <MultiplicationOptions options={operatorOptions[2]} updateSettings={props.updateSettings} />
+            <DivisionOptions options={operatorOptions[3]} updateSettings={props.updateSettings} />
+        </aside>
     )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import settingsIcon from '../icons/settings-icon.svg'
-import closeIcon from '../icons/close-icon.svg'
+import SvgIcon from '../icons/svg-icon'
 
 export default function SettingsButton(props) {
     return (
@@ -8,8 +7,8 @@ export default function SettingsButton(props) {
             className="button"
             onClick={props.toggleSettings}>
             {props.showSettings ?
-                <img src={closeIcon} alt="close settings button icon" /> :
-                <img src={settingsIcon} alt="close settings button icon" />
+                <SvgIcon name={'close'} width={props.width} fill={props.fill} /> :
+                <SvgIcon name={'settings'} width={props.width} fill={props.fill} />
             }
         </button>
     )

@@ -1,9 +1,9 @@
-.App{
-  max-width: 960px;
-  margin: 0 auto;  
-}
+@import 'vars';
 
 ol.question-list{
-  padding: 0;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 20px 10px;
   list-style-position: inside;
+  transition: 0.33s;
 }

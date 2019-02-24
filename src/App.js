@@ -62,7 +62,6 @@ class App extends Component {
     this.toggleSettings = this.toggleSettings.bind(this)
   }
   toggleSettings() {
-    console.log('toggle')
     this.setState({ showSettings: !this.state.showSettings })
   }
 

@@ -3,6 +3,13 @@
 A React webapp to build arithmetic fluency practice questions for adding, subtracting, multiplying and dividing fractions in upper KS2.
 
 **VERY WIP**
+
+## To Do
+
+- Grid styling for questions
+- Print style sheet (add in name and date boxes)
+- settings for number of questions 
+- settings for range of whole and fractional numbers
 ____
 
 ## Auto Generated Create-React-App Docs

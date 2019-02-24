@@ -1,3 +1,41 @@
+@import 'vars';
+
 header{
-    /* border-bottom: 1px solid black; */
+    color: white;
+    background-color: $text-color;
+}
+
+.title-bar{
+    max-width: $container-width;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1{
+    padding-left: 10px;
+}
+
+.top-controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .button{
+        background-color: orange;
+        color: $text-color;
+        outline: none;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100%;
+        }
+    }
 }

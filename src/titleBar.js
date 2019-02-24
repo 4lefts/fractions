@@ -1,31 +1,34 @@
 import React from 'react'
 import SettingsButton from './settingsComponents/SettingsButton'
+import SvgIcon from './icons/svg-icon'
 
-import refreshIcon from './icons/refresh-icon.svg'
-import printIcon from './icons/print-icon.svg'
 import './titleBar-styles.scss'
 
 export default function TitleBar(props) {
     const { title, showSettings } = props
     return (
         <header>
-            <h1>{title}</h1>
-            <section className="top-controls">
-                <button
-                    className="button"
-                    onClick={props.generate}>
-                    <img src={refreshIcon} alt="refresh questions button icon" />
-                </button>
-                <button
-                    className="button"
-                    onClick={() => window.print()}>
-                    <img src={printIcon} alt="print button icon" />
-                </button>
-                <SettingsButton
-                    toggleSettings={props.toggleSettings}
-                    showSettings={showSettings} 
-                />
-            </section>
+            <div className="title-bar">
+                <h1>{title}</h1>
+                <section className="top-controls">
+                    <button
+                        className="button"
+                        onClick={props.generate}>
+                        <SvgIcon name={'refresh'} width={'100%'} fill={'white'} />
+                    </button>
+                    <button
+                        className="button"
+                        onClick={() => window.print()}>
+                        <SvgIcon name={'print'} width={'100%'} fill={'white'} />
+                    </button>
+                    <SettingsButton
+                        toggleSettings={props.toggleSettings}
+                        showSettings={showSettings} 
+                        fill={'white'}
+                        width={'100%'}
+                    />
+                </section>
+            </div>
         </header>
     )
 }
