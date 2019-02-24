@@ -19,7 +19,7 @@ function Fraction(props){
 }
 
 // render a component of both whole and fractional parts
-export default function Num(props){
+export default function MixedNumber(props){
     const w = props.val.whole ? <WholeNumber val={props.val.whole} /> : null
     const f = props.val.numerator ? <Fraction numerator={props.val.numerator} denominator={props.val.denominator} /> : null
     return <Fragment>{w}{f}</Fragment>

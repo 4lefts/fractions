@@ -1,12 +1,12 @@
 import React from 'react'
-import Num from './numbers'
+import MixedNumber from './numbers'
 import './question-styles.scss'
 
 export default function Question(props){
-    const op1 = props.data.op1
-    const op2 = props.data.op2
-    const operator = <span className="operator">{props.data.operator}</span>
+    const {op1, op2, operator} = props.data
     return <li className="question">
-        <Num val={op1}/>{operator}<Num val={op2}/>
+        <MixedNumber val={op1}/>
+        <span className="operator">{operator}</span>
+        <MixedNumber val={op2}/>
     </li>
 }

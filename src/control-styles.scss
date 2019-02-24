@@ -2,3 +2,27 @@
 h3.disabled{
     color: lightgrey;
 }
+
+.settings{
+    position: relative;
+}
+
+.main-controls{
+    transition: 0.33s;
+    padding: 60px 25px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    z-index: 1;
+    &.active{
+        margin-left: 0;
+        width: 500px;
+    }
+    &.inactive{
+        margin-left: -700px;
+        width: 0;
+    }
+}

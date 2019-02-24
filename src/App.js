@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       title: 'Fractions',
       numberOfQuestions: 10,
+      showSettings: false,
       operatorOptions: [
         {
           operator: 'add',
@@ -58,6 +59,11 @@ class App extends Component {
     this.generateQuestionData = this.generateQuestionData.bind(this)
     this.toggleOperators = this.toggleOperators.bind(this)
     this.updateSettings = this.updateSettings.bind(this)
+    this.toggleSettings = this.toggleSettings.bind(this)
+  }
+  toggleSettings() {
+    console.log('toggle')
+    this.setState({ showSettings: !this.state.showSettings })
   }
 
   componentDidMount() {
@@ -118,12 +124,16 @@ class App extends Component {
       <div className="App">
         <TitleBar
           title={this.state.title}
+          generate={this.generateQuestionData}
+          toggleSettings={this.toggleSettings}
+          showSettings={this.state.showSettings}
         />
         <Controls
           operatorOptions={this.state.operatorOptions}
-          generate={this.generateQuestionData}
-          toggleOperators={this.toggleOperators}
           updateSettings={this.updateSettings}
+          showSettings={this.state.showSettings}
+          toggleOperators={this.toggleOperators}
+          toggleSettings={this.toggleSettings}
         />
         {this.questionList()}
       </div>
