@@ -60,6 +60,7 @@ class App extends Component {
     this.toggleOperators = this.toggleOperators.bind(this)
     this.updateSettings = this.updateSettings.bind(this)
     this.toggleSettings = this.toggleSettings.bind(this)
+    this.setNumberOfQuestions = this.setNumberOfQuestions.bind(this)
   }
   toggleSettings() {
     this.setState({ showSettings: !this.state.showSettings })
@@ -86,21 +87,23 @@ class App extends Component {
         break
       }
     }
-    this.setState({
-      operatorOptions: ops
-    })
-    this.generateQuestionData()
+    this.setState({ operatorOptions: ops },
+      () => this.generateQuestionData())
   }
 
-  // all purpose function to toggle various settings
+  // function to toggle various settings
   updateSettings(settingToUpdate) {
     const oldOptions = this.state.operatorOptions.slice()
     const indexToUpdate = oldOptions.findIndex(op => op.operator === settingToUpdate.operator)
     oldOptions[indexToUpdate].options[settingToUpdate.option] = !oldOptions[indexToUpdate].options[settingToUpdate.option]
-    this.setState({
-      operatorOptions: oldOptions
-    })
-    this.generateQuestionData()
+    this.setState({ operatorOptions: oldOptions },
+      () => this.generateQuestionData())
+  }
+
+  setNumberOfQuestions(event) {
+    const n = parseInt(event.target.value)
+    this.setState({ numberOfQuestions: n },
+      () => this.generateQuestionData()) // wait for state to update
   }
 
   // build ordered list of question components
@@ -115,7 +118,7 @@ class App extends Component {
         </ol>
       )
     }
-    return <div>Select some options to make some questions!</div>
+    return <div className="no-questions">Select some options to make some questions!</div>
   }
 
   render() {
@@ -126,6 +129,8 @@ class App extends Component {
           generate={this.generateQuestionData}
           toggleSettings={this.toggleSettings}
           showSettings={this.state.showSettings}
+          numberOfQuestions={this.state.numberOfQuestions}
+          setNumberOfQuestions={this.setNumberOfQuestions}
         />
         <Controls
           operatorOptions={this.state.operatorOptions}
