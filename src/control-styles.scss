@@ -45,7 +45,7 @@
         margin-bottom: 5px;
     }
     .button{
-        color: $text-pale;
+        color: lightgrey;
         font-size: 2rem;
         transition: 0.33s;
         background-color: white;
@@ -63,7 +63,7 @@
         background-color: $text-color;
         border: none;
     }
-    & > .button {
+    & > .button { // for the close button
         border: none;
         text-align: right;
         align-self: flex-end;

@@ -22,6 +22,8 @@ class App extends Component {
             includeFraction1: true,
             includeWhole2: true,
             includeFraction2: true,
+            numberMin: 20,
+            numberMax: 100,
           },
         },
         {
@@ -42,6 +44,8 @@ class App extends Component {
             includeFraction1: true,
             includeWhole2: true,
             includeFraction2: true,
+            numberMin: 20,
+            numberMax: 100,
           },
         },
         {
@@ -111,11 +115,11 @@ class App extends Component {
     // check if the question is null (i.e. no operators are selected)
     const qdata = this.state.questionData.filter(q => q)
     if (qdata.length > 0) {
-      const qs = qdata.map((q, i) => <Question key={i} data={q} />)
+      const qs = qdata.map((q, i) => <Question key={i} qNumber={i + 1} data={q} />)
       return (
-        <ol className="question-list">
+        <div className="question-list">
           {qs}
-        </ol>
+        </div>
       )
     }
     return <div className="no-questions">Select some options to make some questions!</div>

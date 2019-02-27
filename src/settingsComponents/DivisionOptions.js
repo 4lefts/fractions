@@ -7,7 +7,7 @@ export default function DivisionOptions(props) {
         <section className={(active ? '' : 'disabled')}>
             <h3>Division</h3>
             <div className="toggle-row">
-                Whole Number?
+                Use whole a number?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeWhole ? 'active' : '')}

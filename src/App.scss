@@ -1,9 +1,16 @@
 @import 'vars';
 
-ol.question-list{
+.question-list{
   max-width: $container-width;
   margin: 0 auto;
   padding: 20px 10px;
-  list-style-position: inside;
   transition: 0.33s;
+}
+
+@supports (display: grid){
+  .question-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
 }

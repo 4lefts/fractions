@@ -7,7 +7,7 @@ export default function SubtractionOptions(props) {
         <section className={(active ? '' : 'disabled')}>
             <h3>Subtraction</h3>
             <div className="toggle-row">
-                Borrowing?
+                Inlcude "borrowing"?
                 <button
                     disabled={!active}
                     className={"button " + (options.borrowing ? 'active' : '')}
@@ -20,7 +20,7 @@ export default function SubtractionOptions(props) {
                 </button>
             </div>
             <div className="toggle-row">
-                Whole Numbers?
+                Use whole numbers?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeWhole ? 'active' : '')}

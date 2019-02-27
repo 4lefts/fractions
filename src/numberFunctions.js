@@ -52,21 +52,21 @@ function chooseOperator(choices) {
 function makeAddorMultOperands(options) {
     // options:
     // whether to use mixed numbers, just whole numbers, or just fractions
-    let { includeWhole1, includeFraction1, includeWhole2, includeFraction2 } = options
+    let { numberMin, numberMax, includeWhole1, includeFraction1, includeWhole2, includeFraction2 } = options
 
     // guard against both being false
     if (!includeWhole1 && !includeFraction1) includeFraction1 = true
     if (!includeWhole2 && !includeFraction2) includeFraction2 = true
 
     const op1 = makeRandomMixedNumber(
-        includeWhole1 ? 1 : null,
-        includeWhole1 ? 10 : null,
+        includeWhole1 ? numberMin : null,
+        includeWhole1 ? numberMax : null,
         includeFraction1 ? 1 : null,
         includeFraction1 ? 10 : null
     )
     const op2 = makeRandomMixedNumber(
-        includeWhole2 ? 1 : null,
-        includeWhole2 ? 10 : null,
+        includeWhole2 ? numberMin : null,
+        includeWhole2 ? numberMax : null,
         includeFraction2 ? 1 : null,
         includeFraction2 ? 10 : null
     )

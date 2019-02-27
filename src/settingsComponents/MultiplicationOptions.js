@@ -7,7 +7,7 @@ export default function MultiplicationOptions(props) {
         <section className={(active ? '' : 'disabled')}>
             <h3>Multiplication</h3>
             <div className="toggle-row">
-                Include whole 1
+                Use whole number 1?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeWhole1 ? 'active' : '')}
@@ -20,7 +20,7 @@ export default function MultiplicationOptions(props) {
                 </button>
             </div>
             <div className="toggle-row">
-                Include fraction 1
+                Use fraction 1?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeFraction1 ? 'active' : '')}
@@ -33,7 +33,7 @@ export default function MultiplicationOptions(props) {
                 </button>
             </div>
             <div className="toggle-row">
-                Include whole 2
+                Use whole number 2?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeWhole2 ? 'active' : '')}
@@ -46,7 +46,7 @@ export default function MultiplicationOptions(props) {
                 </button>
             </div>
             <div className="toggle-row">
-                Include fraction 2
+                Use fraction 2?
                 <button
                     disabled={!active}
                     className={"button " + (options.includeFraction2 ? 'active' : '')}
