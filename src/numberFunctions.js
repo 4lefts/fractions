@@ -60,15 +60,15 @@ function makeAddorMultOperands(options) {
 
     const op1 = makeRandomMixedNumber(
         includeWhole1 ? 1 : null,
-        includeWhole1 ? 10 : null,
+        includeWhole1 ? 6 : null,
         includeFraction1 ? 1 : null,
-        includeFraction1 ? 10 : null
+        includeFraction1 ? 9 : null
     )
     const op2 = makeRandomMixedNumber(
         includeWhole2 ? 1 : null,
-        includeWhole2 ? 10 : null,
+        includeWhole2 ? 6 : null,
         includeFraction2 ? 1 : null,
-        includeFraction2 ? 10 : null
+        includeFraction2 ? 9 : null
     )
 
     // ...and done
@@ -89,15 +89,15 @@ function makeSubOperands(options) {
 
     const _op1 = makeRandomMixedNumber(
         includeWhole ? 1 : null,
-        includeWhole ? 10 : null,
+        includeWhole ? 6 : null,
         1,
-        10
+        9
     )
     const _op2 = makeRandomMixedNumber(
         includeWhole ? 1 : null,
-        includeWhole ? 10 : null,
+        includeWhole ? 6 : null,
         1,
-        10
+        9
     )
 
     // temp variables to sort numbers according to difficulty
@@ -128,7 +128,7 @@ function makeSubOperands(options) {
             _op2.whole = _w1
         }
         if (_w1 === _w2) {
-            _op1.whole = _op1.whole + 1
+            _op2.whole = _op2.whole - 1
         }
     }
 
@@ -148,11 +148,11 @@ function makeDivOperands(options) {
     let { includeWhole } = options
     const op1 = makeRandomMixedNumber(
         includeWhole ? 1 : null,
-        includeWhole ? 10 : null,
+        includeWhole ? 6 : null,
         1,
-        10
+        9
     )
-    const op2 = makeRandomMixedNumber(1, 10, null, null)
+    const op2 = makeRandomMixedNumber(1, 9, null, null)
     return {
         op1,
         op2
@@ -184,7 +184,7 @@ function makeRandomFraction(n1, n2) {
             denominator: null,
         }
     }
-    const a = makeRandomInt(n1, n2)
+    let a = makeRandomInt(n1, n2)
     let b = makeRandomInt(n1, n2)
     while (b === a) {
         b = makeRandomInt(n1, n2)

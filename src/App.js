@@ -118,15 +118,16 @@ class App extends Component {
   questionList() {
     // check if the question is null (i.e. no operators are selected)
     const qdata = this.state.questionData.filter(q => q)
+    const fs = this.state.questionTextSize + 'rem'
     if (qdata.length > 0) {
       const qs = qdata.map((q, i) => <Question key={i} qNumber={i + 1} data={q} />)
       return (
-        <div className="question-list" style={{fontSize: this.state.questionTextSize + 'rem'}}>
+        <div className="question-list" style={{fontSize: fs}}>
           {qs}
         </div>
       )
     }
-    return <div className="no-questions">Select some options to make some questions!</div>
+    return <div className="no-questions" style={{fontSize: fs}}>Select some options to make some questions!</div>
   }
 
   render() {
