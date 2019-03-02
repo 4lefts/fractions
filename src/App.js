@@ -22,8 +22,8 @@ class App extends Component {
             includeFraction1: true,
             includeWhole2: true,
             includeFraction2: true,
-            numberMin: 20,
-            numberMax: 100,
+            numberMin: 1,
+            numberMax: 10,
           },
         },
         {
@@ -64,6 +64,7 @@ class App extends Component {
     this.toggleOperators = this.toggleOperators.bind(this)
     this.updateSettings = this.updateSettings.bind(this)
     this.toggleSettings = this.toggleSettings.bind(this)
+    this.updateMinMax = this.updateMinMax.bind(this)
     this.setNumberOfQuestions = this.setNumberOfQuestions.bind(this)
   }
   toggleSettings() {
@@ -104,6 +105,18 @@ class App extends Component {
       () => this.generateQuestionData())
   }
 
+  updateMinMax(event, setting){
+    const newValue = +(event.target.value)
+    const oldOptions = this.state.operatorOptions.slice()
+    oldOptions[2].options[setting] = newValue
+    this.setState({
+      operatorOptions: oldOptions
+    }, () => {
+      console.log(JSON.stringify(this.state.operatorOptions[2]))
+      this.generateQuestionData()
+    })
+  }
+
   setNumberOfQuestions(event) {
     const n = parseInt(event.target.value)
     this.setState({ numberOfQuestions: n },
@@ -141,6 +154,7 @@ class App extends Component {
           updateSettings={this.updateSettings}
           showSettings={this.state.showSettings}
           toggleOperators={this.toggleOperators}
+          updateMinMax={this.updateMinMax}
           toggleSettings={this.toggleSettings}
         />
         {this.questionList()}

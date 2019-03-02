@@ -3,6 +3,7 @@ import SvgIcon from '../icons/svg-icon'
 
 export default function MultiplicationOptions(props) {
     const { options, active } = props.options
+    console.log(JSON.stringify(options))
     return (
         <section className={(active ? '' : 'disabled')}>
             <h3>Multiplication</h3>
@@ -57,6 +58,27 @@ export default function MultiplicationOptions(props) {
                             : <SvgIcon name="blank" width="100%" />
                     }
                 </button>
+            </div>
+            <div>
+                Whole number range:
+                <label>
+                    Minimum:
+                    <input
+                        type="number"
+                        min="1"
+                        max="1000"
+                        onChange={(e) => props.updateMinMax(e, 'numberMin')}
+                        value={options.numberMin} />
+                </label>
+                <label>
+                    Maximum:
+                    <input
+                        type="number"
+                        min="1"
+                        max="1000"
+                        onChange={(e) => props.updateMinMax(e, 'numberMax')}
+                        value={options.numberMax} />
+                </label>
             </div>
         </section>
     )

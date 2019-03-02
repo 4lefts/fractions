@@ -6,9 +6,8 @@ A React webapp to build arithmetic fluency practice questions for adding, subtra
 
 ## To Do
 
-- Grid styling for questions
+- controls for range of whole and fractions (add/mult?)
 - Print style sheet (add in name and date boxes)
-- settings for number of questions 
 - settings for range of whole and fractional numbers
 ____
 
