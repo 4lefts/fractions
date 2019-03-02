@@ -75,3 +75,10 @@
         width: 500px;
     }
 }
+
+
+@media print{
+    .main-controls{
+        display: none;
+    }   
+}

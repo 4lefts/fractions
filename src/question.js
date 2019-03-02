@@ -9,5 +9,6 @@ export default function Question(props){
         <MixedNumber val={op1}/>
         <span className="operator">{operator}</span>
         <MixedNumber val={op2}/>
+        <span className="answer-box">=</span>
     </div>
 }

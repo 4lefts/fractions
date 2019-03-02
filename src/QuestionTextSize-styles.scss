@@ -1,0 +1,22 @@
+@import 'vars';
+.slider-container{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: $text-color;
+    opacity: 0.7;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    label{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media print{
+    .slider-container{
+        display: none;
+    }   
+}

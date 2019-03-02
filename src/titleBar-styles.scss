@@ -13,6 +13,39 @@ header{
     justify-content: space-between;
 }
 
+.name-box{
+    display: none;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    span{
+        display: inline-block;
+        width: 45%;
+        border-bottom: 2px solid black;
+        margin-right: 3em;
+        padding-bottom: 0.5em;
+    }
+}
+
+@media print{
+    .title-bar{
+        display: none;
+    }   
+    .name-box{
+        display: block;
+    }
+    @supports (display: grid){
+        .name-box{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3em;
+            span{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
 h1{
     padding-left: 10px;
 }

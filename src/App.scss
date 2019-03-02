@@ -1,16 +1,31 @@
 @import 'vars';
 
-.question-list{
+.question-list, .no-questions{
   max-width: $container-width;
   margin: 0 auto;
   padding: 20px 10px;
   transition: 0.33s;
 }
 
+.no-questions{
+  font-size: 2rem;
+  text-align: center;
+}
+
 @supports (display: grid){
   .question-list{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
     grid-gap: 20px;
   }
+}
+
+
+@media print{
+  .question-list{
+    display: block;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+  }   
 }

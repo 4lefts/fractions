@@ -3,6 +3,7 @@ import './App.scss';
 import TitleBar from './titleBar';
 import Controls from './Controls';
 import Question from './question';
+import QuestionTextSize from './QuestionTextSize';
 import { buildQuestionDataArray } from './numberFunctions';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
       title: 'Fractions',
       numberOfQuestions: 10,
       showSettings: false,
+      questionTextSize: 3,
       operatorOptions: [
         {
           operator: 'add',
@@ -22,8 +24,6 @@ class App extends Component {
             includeFraction1: true,
             includeWhole2: true,
             includeFraction2: true,
-            numberMin: 1,
-            numberMax: 10,
           },
         },
         {
@@ -44,8 +44,6 @@ class App extends Component {
             includeFraction1: true,
             includeWhole2: true,
             includeFraction2: true,
-            numberMin: 20,
-            numberMax: 100,
           },
         },
         {
@@ -64,8 +62,8 @@ class App extends Component {
     this.toggleOperators = this.toggleOperators.bind(this)
     this.updateSettings = this.updateSettings.bind(this)
     this.toggleSettings = this.toggleSettings.bind(this)
-    this.updateMinMax = this.updateMinMax.bind(this)
     this.setNumberOfQuestions = this.setNumberOfQuestions.bind(this)
+    this.setQuestionTextSize = this.setQuestionTextSize.bind(this)
   }
   toggleSettings() {
     this.setState({ showSettings: !this.state.showSettings })
@@ -105,22 +103,15 @@ class App extends Component {
       () => this.generateQuestionData())
   }
 
-  updateMinMax(event, setting){
-    const newValue = +(event.target.value)
-    const oldOptions = this.state.operatorOptions.slice()
-    oldOptions[2].options[setting] = newValue
-    this.setState({
-      operatorOptions: oldOptions
-    }, () => {
-      console.log(JSON.stringify(this.state.operatorOptions[2]))
-      this.generateQuestionData()
-    })
-  }
-
   setNumberOfQuestions(event) {
     const n = parseInt(event.target.value)
     this.setState({ numberOfQuestions: n },
       () => this.generateQuestionData()) // wait for state to update
+  }
+
+  setQuestionTextSize(event) {
+    const newSize = event.target.value
+    this.setState({ questionTextSize: newSize })
   }
 
   // build ordered list of question components
@@ -130,7 +121,7 @@ class App extends Component {
     if (qdata.length > 0) {
       const qs = qdata.map((q, i) => <Question key={i} qNumber={i + 1} data={q} />)
       return (
-        <div className="question-list">
+        <div className="question-list" style={{fontSize: this.state.questionTextSize + 'rem'}}>
           {qs}
         </div>
       )
@@ -154,10 +145,12 @@ class App extends Component {
           updateSettings={this.updateSettings}
           showSettings={this.state.showSettings}
           toggleOperators={this.toggleOperators}
-          updateMinMax={this.updateMinMax}
           toggleSettings={this.toggleSettings}
         />
         {this.questionList()}
+        <QuestionTextSize
+          questionTextSize={this.state.questionTextSize}
+          onChange={this.setQuestionTextSize} />
       </div>
     );
   }

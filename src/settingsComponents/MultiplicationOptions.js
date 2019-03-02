@@ -59,27 +59,6 @@ export default function MultiplicationOptions(props) {
                     }
                 </button>
             </div>
-            <div>
-                Whole number range:
-                <label>
-                    Minimum:
-                    <input
-                        type="number"
-                        min="1"
-                        max="1000"
-                        onChange={(e) => props.updateMinMax(e, 'numberMin')}
-                        value={options.numberMin} />
-                </label>
-                <label>
-                    Maximum:
-                    <input
-                        type="number"
-                        min="1"
-                        max="1000"
-                        onChange={(e) => props.updateMinMax(e, 'numberMax')}
-                        value={options.numberMax} />
-                </label>
-            </div>
         </section>
     )
 }

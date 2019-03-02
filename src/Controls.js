@@ -16,7 +16,7 @@ export default function Controls(props) {
             <OperatorChoices operatorOptions={operatorOptions} toggleOperators={props.toggleOperators} />
             <AddtionOptions options={operatorOptions[0]} updateSettings={props.updateSettings} />
             <SubtractionOptions options={operatorOptions[1]} updateSettings={props.updateSettings} />
-            <MultiplicationOptions options={operatorOptions[2]} updateSettings={props.updateSettings} updateMinMax={props.updateMinMax} />
+            <MultiplicationOptions options={operatorOptions[2]} updateSettings={props.updateSettings} />
             <DivisionOptions options={operatorOptions[3]} updateSettings={props.updateSettings} />
         </aside>
     )

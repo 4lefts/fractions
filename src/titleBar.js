@@ -38,6 +38,9 @@ export default function TitleBar(props) {
                     />
                 </section>
             </div>
+            <div className="name-box">
+                <span>Name:</span><span>Date:</span>
+            </div>
         </header>
     )
 }
